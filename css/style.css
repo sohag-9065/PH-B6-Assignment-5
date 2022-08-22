@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+#header-heading {
+    font-family: 'Berkshire Swash', cursive;
+    color: #FF5E19;
+}
+
+.main-section {
+    background-color: #151515;
+    ;
+}
+
+.buton-color {
+    background-color: #015196;
+}
+
+li::marker {
+    font-size: 25px;
+    font-weight: bold;
+    color: #888888;
+}

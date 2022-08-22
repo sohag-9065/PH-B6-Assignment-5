@@ -8,41 +8,37 @@
     <!-- tailwind link  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                        redOrange: '#FF5E19'
-                    },
+    
 
-                }
-            }
-        }
-    </script>
+    <link rel="icon" type="image/x-icon" href="images/fav_icon.png">
+
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Join Us With Your Team</title>
 </head>
 
 <body>
-    <header class="grid grid-cols-5 justify-center items-center gap-4 mx-10">
-        <div>
-            <img src="https://images.unsplash.com/photo-1511204338744-5d4e9b3ffee0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=902&q=80"
+    <header>
+        <section class="bg-black flex justify-between">
+            <img class="sm:h-3/7 sm:w-4/12 md:h-3/5 md:w-5/12 lg:w-4/12 xl:w-3/12 sm:self-end hidden sm:block" src="images/header_player.png"
                 alt="">
-        </div>
-        <div class="col-span-3">
-            <h1 class="text-center text-redOrange text-7xl  sansa">Join Us With Your Team</h1>
-            <p>Individual commitment to a group effort: That is what makes a team work, a company work, a society work,
-                a civilization work.</p>
-        </div>
-        <div>
-            <img class="w-9/12"
-                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-                alt="">
-        </div>
+            <div class="my-auto md:mr-12">
+                <h6
+                    id="header-heading"
+                    class="md:text-5xl lg:text-6xl xl:text-7xl text-4xl mt-12 px-6 font-bold text-center align-middle  items-center">
+                    Join Us With Your Team</h6>
+                <img class="xl:w-4/12 md:w-6/12 w-6/12 mx-auto xl:mr-0 mt-2" src="images/header_underline.png" alt="">
+                <p class="text-center mb-12 px-4 text-white xl:text-2xl md:text-1xl mt-2">Teamwork makes what's
+                    impossible to do alone possible. Alone we might be small, but together we can stand some
+                    giant's tall. Talent may get lucky, but teamwork is built to win. A team that works together, stays
+                    together and
+                    finds greatness together.</p>
+            </div>
+            <img class="w-1/5 place-items-end place-self-end hidden lg:block" src="images/header_ball.png" alt="">
+        </section>
     </header>
 
+    <!-- main section  -->
     <main class="w-9/12 mx-auto mt-24 pb-20">
         <div class="grid grid-cols-4 gap-16 ">
             <div class="col-span-3">
@@ -162,29 +158,39 @@
                 </div>
                 <div class="team-budget">
                     <p class="text-4xl text-center font-semibold">Budget</p>
-                    <div class="mt-4"> 
+                    <div class="mt-4">
                         <label class="label">Per Player
-                            <input id="perPlayerBudget" type="text" placeholder="Type here" class="input input-bordered   w-3/5" />
+                            <input id="perPlayerBudget" type="text" placeholder="Type here"
+                                class="input input-bordered   w-3/5" />
                         </label>
                     </div>
-                    <button class="btn btn-primary w-full" onclick="playerExpenses('perPlayerBudget','showPlayerExpenses')" >Calculate</button> 
+                    <button class="btn btn-primary w-full"
+                        onclick="playerExpenses('perPlayerBudget','showPlayerExpenses')">Calculate</button>
                     <p class="mt-4">Player Expenses: $<span id="showPlayerExpenses">0</span></p>
-                    <div class="mt-4"> 
+                    <div class="mt-4">
                         <label class="label">Manager
-                            <input id="managerBudget" type="text" placeholder="Type here" class="input input-bordered   w-3/5" />
+                            <input id="managerBudget" type="text" placeholder="Type here"
+                                class="input input-bordered   w-3/5" />
                         </label>
                     </div>
-                    <div class=""> 
+                    <div class="">
                         <label class="label">Coach
-                            <input id="coachBudget" type="text" placeholder="Type here" class="input input-bordered   w-3/5" />
+                            <input id="coachBudget" type="text" placeholder="Type here"
+                                class="input input-bordered   w-3/5" />
                         </label>
                     </div>
-                    <button class="btn btn-primary w-full" onclick="totalTeamExpenses('showPlayerExpenses','managerBudget','coachBudget','totalExpenses')" >Calculate Total</button>
+                    <button class="btn btn-primary w-full"
+                        onclick="totalTeamExpenses('showPlayerExpenses','managerBudget','coachBudget','totalExpenses')">Calculate
+                        Total</button>
                     <p class="mt-4">Total: $<span id="totalExpenses">0</span></p>
                 </div>
             </div>
         </div>
     </main>
+    
+
+
+    
     <script src="JS/index.js"></script>
 </body>
 
