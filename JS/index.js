@@ -44,17 +44,16 @@ function setValueInTextField(inputId, newText) {
 
 function playerExpenses() {
     const userInput = document.getElementById('perPlayerBudget').value;
-    const userCost = parseInt(userInput);
-    const totalPlayerCost = userCost*cart.length;
+    const totalPlayerCost = userInput*cart.length;
     setValueInTextField('showPlayerExpenses', totalPlayerCost);
 }
 function totalTeamExpenses(displayId) {
     const playerExpense = document.getElementById('showPlayerExpenses').innerText;
     const playerBudget = parseInt(playerExpense);
     const manager = document.getElementById('managerBudget').value;
-    const managerBudget = parseInt(manager);
+    const managerBudget = manager*1;
     const coach = document.getElementById('coachBudget').value;
-    const coachBudget = parseInt(coach);
+    const coachBudget = coach*1;
     const totalCost = playerBudget + managerBudget + coachBudget;
     setValueInTextField('totalExpenses', totalCost);
 }
