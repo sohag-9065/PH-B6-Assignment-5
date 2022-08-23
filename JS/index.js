@@ -1,47 +1,60 @@
+// products-cart-array
 const cart = [];
-// products-cart
 
-function displayProduct() {
-    const cartContainer = document.getElementById("products-cart");
+function displayPlayer() {
+    const cartContainer = document.getElementById("player-cart");
     cartContainer.textContent = '';
 
     for (let i = 0; i < cart.length; i++) {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-        <th>${i + 1}</th>
-        <td>${cart[i]}</td>
+        <th class="p-1">${i + 1}</th>
+        <td class="p-1">${cart[i]}</td>
         `;
         cartContainer.appendChild(tr);
     }
-    
 }
 
 function addToCart(element) {
-    console.log(element)
     if (cart.length > 4) {
         alert("Already 5 player Added")
     }
     else {
-        const pdName = element.parentNode.parentNode.children[0].innerText;       
-
-        cart.push(pdName);
+        const playerName = element.parentNode.parentNode.children[0].innerText;       
+        cart.push(playerName);
         element.disabled = true;
-        displayProduct();
+        displayPlayer();
     }
 
 }
 
-function playerExpenses(inputId,displayId) {
-    const userInput = document.getElementById(inputId).value;
-
-    document.getElementById(displayId).innerText= userInput*cart.length;
+function setValueInTextField(inputId, newText) {
+    let getField = document.getElementById(inputId);
+    if (isNaN(newText)){
+        getField.innerText = '000';
+        alert('Wrong Input! Please Check Your Input.')
+    }
+    else if (newText == 0){
+        getField.innerText = '000';
+    }
+    else{
+        getField.innerText = newText;
+    }
 }
-function totalTeamExpenses(playerExpensesId,managerId,coachId,displayId) {
-    const playerExpense = document.getElementById(playerExpensesId).innerText;
-    const playerCost = parseInt(playerExpense);
-    const manager = document.getElementById(managerId).value;
-    const managerCost = parseInt(manager);
-    const coach = document.getElementById(coachId).value;
-    const coachCost = parseInt(coach);
-    document.getElementById(displayId).innerText= playerCost + managerCost + coachCost;
+
+function playerExpenses() {
+    const userInput = document.getElementById('perPlayerBudget').value;
+    const userCost = parseInt(userInput);
+    const totalPlayerCost = userCost*cart.length;
+    setValueInTextField('showPlayerExpenses', totalPlayerCost);
+}
+function totalTeamExpenses(displayId) {
+    const playerExpense = document.getElementById('showPlayerExpenses').innerText;
+    const playerBudget = parseInt(playerExpense);
+    const manager = document.getElementById('managerBudget').value;
+    const managerBudget = parseInt(manager);
+    const coach = document.getElementById('coachBudget').value;
+    const coachBudget = parseInt(coach);
+    const totalCost = playerBudget + managerBudget + coachBudget;
+    setValueInTextField('totalExpenses', totalCost);
 }
